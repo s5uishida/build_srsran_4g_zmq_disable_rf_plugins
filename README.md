@@ -3,8 +3,6 @@ srsRAN 4G software suite includes a virtual radio which uses the ZeroMQ networki
 Therefore, in order to confirm the facilities of EPC, I will describe the simple procedure for building these virtual eNodeB and UE instead of the real devices.
 **Note that the RF plugin is disabled and the ZeroMQ library is built into the virtual eNodeB and UE.**
 
----
-
 Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 - srsRAN 4G - https://docs.srsran.com/projects/4g/en/latest/
 

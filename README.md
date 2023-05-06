@@ -6,6 +6,8 @@ Therefore, in order to confirm the facilities of EPC, I will describe the simple
 Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 - srsRAN 4G - https://docs.srsran.com/projects/4g/en/latest/
 
+**2GB or more memory is required to build.**
+
 ---
 
 <h2 id="install_libs">Install the required libraries including ZeroMQ</h2>

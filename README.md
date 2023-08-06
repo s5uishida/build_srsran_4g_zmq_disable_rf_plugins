@@ -22,30 +22,14 @@ apt install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-o
 git clone https://github.com/srsran/srsRAN_4G.git
 ```
 
-<h2 id="edit_config">Edit srsRAN_4G/CMakeLists.txt for disabling RF plugins</h2>
+<h2 id="build">Build srsRAN 4G UE / RAN by disabling RF plugins</h2>
 
 Configure that **RF plugins** is disabled to directly link the ZeroMQ library into the virtual eNodeB and UE.
-```diff 
---- CMakeLists.txt.orig 2023-05-02 10:51:19.942559736 +0900
-+++ CMakeLists.txt      2023-05-02 10:51:43.645754492 +0900
-@@ -69,7 +69,7 @@
- option(AUTO_DETECT_ISA       "Autodetect supported ISA extensions"      ON)
- 
- option(ENABLE_GUI            "Enable GUI (using srsGUI)"                ON)
--option(ENABLE_RF_PLUGINS     "Enable RF plugins"                        ON)
-+option(ENABLE_RF_PLUGINS     "Enable RF plugins"                        OFF)
- option(ENABLE_UHD            "Enable UHD"                               ON)
- option(ENABLE_BLADERF        "Enable BladeRF"                           ON)
- option(ENABLE_SOAPYSDR       "Enable SoapySDR"                          ON)
-```
-
-<h2 id="build">Build srsRAN 4G UE / RAN</h2>
-
 ```
 cd srsRAN_4G
 mkdir build
 cd build
-cmake ../
+cmake ../ -DENABLE_RF_PLUGINS=OFF
 make
 ```
 

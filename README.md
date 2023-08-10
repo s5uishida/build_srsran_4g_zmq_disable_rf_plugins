@@ -59,8 +59,8 @@ For 5G NR-UE configuration, get `UE config` of [ZeroMQ-based Setup](https://docs
 cd srsRAN_4G/build/srsue
 wget <link of "UE config">
 ```
-For reference, `ue_zmq.yaml` on 2023.04.24 is as follows.
-```yaml
+For reference, `ue_zmq.conf` on 2023.04.24 is as follows.
+```
 [rf]
 freq_offset = 0
 tx_gain = 50

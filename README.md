@@ -54,7 +54,9 @@ Then, edit according to your environment.
 
 <h2 id="create_nr_ue_config">Create configuration files of NR-UE</h2>
 
+When used as 5G NR-UE with ZeroMQ support, it can connect to srsRAN_Project 5G RAN with ZeroMQ.
 For 5G NR-UE configuration, get `UE config` of [ZeroMQ-based Setup](https://docs.srsran.com/projects/project/en/latest/tutorials/source/srsUE/source/index.html#zeromq-based-setup) as the original file.
+Also, see [here](https://github.com/s5uishida/build_srsran_5g_zmq) for how to build this RF simulated gNodeB.
 ```
 cd srsRAN_4G/build/srsue
 wget <link of "UE config">

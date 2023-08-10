@@ -44,7 +44,7 @@ cp sib.conf.example ../build/srsenb/sib.conf
 ```
 Then, edit according to your environment.
 
-<h2 id="create_ue_config">Create configuration files of UE</h2>
+<h2 id="create_ue_config">Create the configuration file of UE</h2>
 
 ```
 cd srsRAN_4G/srsue
@@ -52,7 +52,7 @@ cp ue.conf.example ../build/srsue/ue.conf
 ```
 Then, edit according to your environment.
 
-<h2 id="create_nr_ue_config">Create configuration files of NR-UE</h2>
+<h2 id="create_nr_ue_config">Create the configuration file of NR-UE</h2>
 
 When used as 5G NR-UE with ZeroMQ support, it can connect to srsRAN_Project 5G RAN with ZeroMQ.
 For 5G NR-UE configuration, get `UE config` of [ZeroMQ-based Setup](https://docs.srsran.com/projects/project/en/latest/tutorials/source/srsUE/source/index.html#zeromq-based-setup) as the original file.

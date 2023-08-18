@@ -121,6 +121,8 @@ enable = false
 ```
 Then, edit according to your environment.
 
+If you're having an issue with a registration request from NR-UE with `[slicing]` section in the configuration to Open5GS, [this](https://github.com/srsran/srsRAN_4G/pull/1214) might be helpful.
+
 ---
 
 <h2 id="changelog">Changelog (summary)</h2>

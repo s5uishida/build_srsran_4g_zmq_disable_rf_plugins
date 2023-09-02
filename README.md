@@ -10,6 +10,19 @@ Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 
 ---
 
+<h2 id="toc">Table of Contents</h2>
+
+- [Install the required libraries including ZeroMQ](#install_libs)
+- [Clone srsRAN_4G](#clone_srsran)
+- [Build srsRAN 4G UE / RAN by disabling RF plugins](#build)
+- [Create configuration files of eNodeB](#create_enb_config)
+- [Create the configuration file of UE](#create_ue_config)
+- [Create the configuration file of NR-UE](#create_nr_ue_config)
+- [Issues](#issues)
+- [Changelog (summary)](#changelog)
+
+---
+
 <h2 id="install_libs">Install the required libraries including ZeroMQ</h2>
 
 ```
@@ -121,7 +134,9 @@ enable = false
 ```
 Then, edit according to your environment.
 
-If you're having an issue with a registration request from NR-UE with `[slicing]` section in the configuration to Open5GS, [this](https://github.com/srsran/srsRAN_4G/pull/1214) might be helpful.
+<h2 id="issues">Issues</h2>
+
+- If you're having an issue with a registration request from NR-UE with `[slicing]` section in the configuration to Open5GS, [this](https://github.com/srsran/srsRAN_4G/pull/1214) might be helpful.
 
 ---
 

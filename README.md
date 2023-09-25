@@ -10,7 +10,9 @@ Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 
 ---
 
-<h2 id="toc">Table of Contents</h2>
+<a id="toc"></a>
+
+## Table of Contents
 
 - [Install the required libraries including ZeroMQ](#install_libs)
 - [Clone srsRAN_4G](#clone_srsran)
@@ -23,19 +25,25 @@ Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 
 ---
 
-<h2 id="install_libs">Install the required libraries including ZeroMQ</h2>
+<a id="install_libs"></a>
+
+## Install the required libraries including ZeroMQ
 
 ```
 apt install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libzmq3-dev
 ```
 
-<h2 id="clone_srsran">Clone srsRAN_4G</h2>
+<a id="clone_srsran"></a>
+
+## Clone srsRAN_4G
 
 ```
 git clone https://github.com/srsran/srsRAN_4G.git
 ```
 
-<h2 id="build">Build srsRAN 4G UE / RAN by disabling RF plugins</h2>
+<a id="build"></a>
+
+## Build srsRAN 4G UE / RAN by disabling RF plugins
 
 Configure that **RF plugins** is disabled to directly link the ZeroMQ library into the virtual eNodeB and UE.
 ```
@@ -46,7 +54,9 @@ cmake ../ -DENABLE_RF_PLUGINS=OFF
 make
 ```
 
-<h2 id="create_enb_config">Create configuration files of eNodeB</h2>
+<a id="create_enb_config"></a>
+
+## Create configuration files of eNodeB
 
 ```
 cd srsRAN_4G/srsenb
@@ -57,7 +67,9 @@ cp sib.conf.example ../build/srsenb/sib.conf
 ```
 Then, edit according to your environment.
 
-<h2 id="create_ue_config">Create the configuration file of UE</h2>
+<a id="create_ue_config"></a>
+
+## Create the configuration file of UE
 
 ```
 cd srsRAN_4G/srsue
@@ -65,7 +77,9 @@ cp ue.conf.example ../build/srsue/ue.conf
 ```
 Then, edit according to your environment.
 
-<h2 id="create_nr_ue_config">Create the configuration file of NR-UE</h2>
+<a id="create_nr_ue_config"></a>
+
+## Create the configuration file of NR-UE
 
 When used as 5G NR-UE with ZeroMQ support, it can connect to srsRAN_Project 5G RAN with ZeroMQ.
 For 5G NR-UE configuration, get `UE config` of [ZeroMQ-based Setup](https://docs.srsran.com/projects/project/en/latest/tutorials/source/srsUE/source/index.html#zeromq-based-setup) as the original file.
@@ -134,13 +148,17 @@ enable = false
 ```
 Then, edit according to your environment.
 
-<h2 id="issues">Issues</h2>
+<a id="issues"></a>
+
+## Issues
 
 - If you're having an issue with a registration request from NR-UE with `[slicing]` section in the configuration to Open5GS, [this](https://github.com/srsran/srsRAN_4G/pull/1214) might be helpful.
 
 ---
 
-<h2 id="changelog">Changelog (summary)</h2>
+<a id="changelog"></a>
+
+## Changelog (summary)
 
 - [2023.08.10] Added 5G NR-UE configuration file.
 - [2023.05.06] Initial release.

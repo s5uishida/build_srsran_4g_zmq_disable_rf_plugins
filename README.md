@@ -21,6 +21,7 @@ Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 - [Create the configuration file of UE](#create_ue_config)
 - [Create the configuration file of NR-UE](#create_nr_ue_config)
 - [Issues](#issues)
+- [Confirmed Version List](#ver_list)
 - [Changelog (summary)](#changelog)
 
 ---
@@ -154,11 +155,21 @@ Then, edit according to your environment.
 
 - If you're having an issue with a registration request from NR-UE with `[slicing]` section in the configuration to Open5GS, [this](https://github.com/srsran/srsRAN_4G/pull/1214) might be helpful.
 
+<a id="ver_list"></a>
+
+## Confirmed Version List
+
+I simply confirmed the operation of the following versions.
+```
+commit:fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b on 2023.06.19
+```
+
 ---
 
 <a id="changelog"></a>
 
 ## Changelog (summary)
 
+- [2023.10.10] Added a list of confirmed versions.
 - [2023.08.10] Added 5G NR-UE configuration file.
 - [2023.05.06] Initial release.

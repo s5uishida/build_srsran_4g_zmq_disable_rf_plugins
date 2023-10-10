@@ -153,7 +153,7 @@ Then, edit according to your environment.
 
 ## Issues
 
-- If you're having an issue with a registration request from NR-UE with `[slicing]` section in the configuration to Open5GS, [this](https://github.com/srsran/srsRAN_4G/pull/1214) might be helpful.
+1. If you're having an issue with a registration request from NR-UE with `[slicing]` section in the configuration to Open5GS, [this](https://github.com/srsran/srsRAN_4G/pull/1214) might be helpful.
 
 <a id="ver_list"></a>
 
@@ -161,7 +161,7 @@ Then, edit according to your environment.
 
 I simply confirmed the operation of the following versions.
 ```
-commit:fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b on 2023.06.19
+commit:fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b on 2023.06.19 - for issues 1
 ```
 
 ---

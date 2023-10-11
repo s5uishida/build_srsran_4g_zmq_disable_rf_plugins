@@ -161,7 +161,7 @@ Then, edit according to your environment.
 
 I simply confirmed the operation of the following versions.
 ```
-commit:fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b on 2023.06.19 - for issues 1
+commit:fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b on 2023.06.19 and issues 1
 ```
 
 ---

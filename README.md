@@ -161,6 +161,7 @@ Then, edit according to your environment.
 
 I simply confirmed the operation of the following versions.
 ```
+commit:eea87b1d893ae58e0b08bc381730c502024ae71f on 2023.11.23 and issues 1
 commit:fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b on 2023.06.19 and issues 1
 ```
 
@@ -170,6 +171,7 @@ commit:fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b on 2023.06.19 and issues 1
 
 ## Changelog (summary)
 
+- [2023.12.02] Updated a list of confirmed versions.
 - [2023.10.10] Added a list of confirmed versions.
 - [2023.08.10] Added 5G NR-UE configuration file.
 - [2023.05.06] Initial release.

@@ -10,6 +10,10 @@ Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 
 ---
 
+### [Sample Configurations and Miscellaneous for Mobile Network](https://github.com/s5uishida/sample_config_misc_for_mobile_network)
+
+---
+
 <a id="toc"></a>
 
 ## Table of Contents

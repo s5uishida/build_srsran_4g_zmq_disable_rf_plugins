@@ -160,10 +160,11 @@ Then, edit according to your environment.
 ## Confirmed Version List
 
 I simply confirmed the operation of the following versions.
-```
-commit:eea87b1d893ae58e0b08bc381730c502024ae71f on 2023.11.23 and issues 1
-commit:fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b on 2023.06.19 and issues 1
-```
+
+| Version | Commit | Date | Issues |
+| --- | --- | --- | -- |
+| 23.11 | `eea87b1d893ae58e0b08bc381730c502024ae71f` | 2023.11.23 | 1 |
+| 23.04.1 | `fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b` | 2023.06.19 | 1 |
 
 ---
 

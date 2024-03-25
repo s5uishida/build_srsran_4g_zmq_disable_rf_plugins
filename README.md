@@ -167,6 +167,7 @@ I simply confirmed the operation of the following versions.
 
 | Version | Commit | Date | Issues |
 | --- | --- | --- | -- |
+| 23.11+ | `ec29b0c1ff79cebcbe66caa6d6b90778261c42b8` | 2024.02.01 | 1 |
 | 23.11 | `eea87b1d893ae58e0b08bc381730c502024ae71f` | 2023.11.23 | 1 |
 | 23.04.1 | `fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b` | 2023.06.19 | 1 |
 
@@ -176,6 +177,7 @@ I simply confirmed the operation of the following versions.
 
 ## Changelog (summary)
 
+- [2024.03.25] Updated a list of confirmed versions.
 - [2023.12.02] Updated a list of confirmed versions.
 - [2023.10.10] Added a list of confirmed versions.
 - [2023.08.10] Added 5G NR-UE configuration file.

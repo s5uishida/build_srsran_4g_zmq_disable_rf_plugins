@@ -93,17 +93,17 @@ Also, see [here](https://github.com/s5uishida/build_srsran_5g_zmq) for how to bu
 cd srsRAN_4G/build/srsue
 wget <link of "UE config">
 ```
-For reference, `ue_zmq.conf` on 2023.04.24 is as follows.
+For reference, `ue_zmq.conf` on 2023.12.07 is as follows.
 ```
 [rf]
 freq_offset = 0
 tx_gain = 50
 rx_gain = 40
-srate = 11.52e6
+srate = 23.04e6
 nof_antennas = 1
 
 device_name = zmq
-device_args = tx_port=tcp://127.0.0.1:2001,rx_port=tcp://127.0.0.1:2000,base_srate=11.52e6
+device_args = tx_port=tcp://127.0.0.1:2001,rx_port=tcp://127.0.0.1:2000,base_srate=23.04e6
 
 [rat.eutra]
 dl_earfcn = 2850
@@ -112,6 +112,8 @@ nof_carriers = 0
 [rat.nr]
 bands = 3
 nof_carriers = 1
+max_nof_prb = 106
+nof_prb = 106
 
 [pcap]
 enable = none

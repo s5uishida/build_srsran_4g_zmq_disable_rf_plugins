@@ -26,6 +26,9 @@ Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 - [Create the configuration file of NR-UE](#create_nr_ue_config)
 - [Issues](#issues)
 - [Confirmed Version List](#ver_list)
+- [Sample Configurations](#sample_conf)
+  - [For 5G](#5g_conf)
+  - [For 4G](#4g_conf)
 - [Changelog (summary)](#changelog)
 
 ---
@@ -173,7 +176,24 @@ I simply confirmed the operation of the following versions.
 | 23.11 | `eea87b1d893ae58e0b08bc381730c502024ae71f` | 2023.11.23 | 1 |
 | 23.04.1 | `fa56836b14dc6ad7ce0c3484a1944ebe2cdbe63b` | 2023.06.19 | 1 |
 
----
+<a id="sample_conf"></a>
+
+## Sample Configurations
+
+<a id="5g_conf"></a>
+
+### For 5G
+
+- [Open5GS 5GC & srsRAN 5G with ZeroMQ UE / RAN Sample Configuration](https://github.com/s5uishida/open5gs_5gc_srsran_sample_config)
+- [free5GC 5GC & srsRAN 5G with ZeroMQ UE / RAN Sample Configuration](https://github.com/s5uishida/free5gc_srsran_sample_config)
+
+<a id="4g_conf"></a>
+
+### For 4G
+
+- [Open5GS EPC & srsRAN 4G with ZeroMQ UE / RAN Sample Configuration - Select nearby UPF(PGW-U) according to the connected eNodeB](https://github.com/s5uishida/open5gs_epc_srsran_nearby_upf_sample_config)
+- [Open5GS EPC & srsRAN 4G with ZeroMQ UE / RAN Sample Configuration - VPP-UPF(PGW-U) with DPDK](https://github.com/s5uishida/open5gs_epc_srsran_vpp_upf_dpdk_sample_config)
+- [Open5GS EPC & srsRAN 4G with ZeroMQ UE / RAN Sample Configuration - eUPF(eBPF/XDP UPF(PGW-U))](https://github.com/s5uishida/open5gs_epc_srsran_eupf_sample_config)
 
 <a id="changelog"></a>
 

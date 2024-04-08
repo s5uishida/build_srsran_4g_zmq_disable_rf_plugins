@@ -192,9 +192,6 @@ I simply confirmed the operation of the following versions.
 ### For 4G
 
 - [Open5GS EPC & srsRAN 4G with ZeroMQ UE / RAN Sample Configuration](https://github.com/s5uishida/open5gs_epc_srsran_sample_config)
-- [Open5GS EPC & srsRAN 4G with ZeroMQ UE / RAN Sample Configuration - Select nearby UPF(PGW-U) according to the connected eNodeB](https://github.com/s5uishida/open5gs_epc_srsran_nearby_upf_sample_config)
-- [Open5GS EPC & srsRAN 4G with ZeroMQ UE / RAN Sample Configuration - VPP-UPF(PGW-U) with DPDK](https://github.com/s5uishida/open5gs_epc_srsran_vpp_upf_dpdk_sample_config)
-- [Open5GS EPC & srsRAN 4G with ZeroMQ UE / RAN Sample Configuration - eUPF(eBPF/XDP UPF(PGW-U))](https://github.com/s5uishida/open5gs_epc_srsran_eupf_sample_config)
 
 <a id="changelog"></a>
 

@@ -6,7 +6,7 @@ Therefore, in order to confirm the facilities of EPC, I will describe the simple
 Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 - srsRAN 4G - https://docs.srsran.com/projects/4g/en/latest/
 
-The specification of the OS that have been confirmed to work is as follows.
+The specification of the VM that have been confirmed to work is as follows.
 | OS | CPU(Min) | Memory(Min) | HDD(Min) |
 | --- | --- | --- | --- |
 | Ubuntu 22.04 | 1 | 2GB | 20GB |

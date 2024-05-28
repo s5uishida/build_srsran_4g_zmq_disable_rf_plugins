@@ -9,7 +9,7 @@ Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 The specification of the VM that have been confirmed to work is as follows.
 | OS | CPU (Min) | Memory (Min) | HDD (Min) |
 | --- | --- | --- | --- |
-| Ubuntu 22.04 | 1 | 2GB | 20GB |
+| Ubuntu 22.04 | 1 | 2GB | 10GB |
 
 **2GB or more memory is required to build.**
 

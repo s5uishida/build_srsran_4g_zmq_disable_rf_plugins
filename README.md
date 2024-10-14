@@ -64,7 +64,7 @@ cd srsRAN_4G
 mkdir build
 cd build
 cmake ../ -DENABLE_RF_PLUGINS=OFF
-make
+make -j`nproc`
 ```
 
 <a id="create_enb_config"></a>

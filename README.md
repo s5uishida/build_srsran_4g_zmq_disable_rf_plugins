@@ -29,6 +29,7 @@ The specification of the VM that have been confirmed to work is as follows.
 - [Create configuration files of eNodeB](#create_enb_config)
 - [Create the configuration file of UE](#create_ue_config)
 - [Create the configuration file of NR-UE](#create_nr_ue_config)
+- [Note for ensuring that packets pass through UE-RAN-UPF path](#packets_path)
 - [Issues](#issues)
 - [Confirmed Version List](#ver_list)
 - [Sample Configurations](#sample_conf)
@@ -162,6 +163,20 @@ enable = false
 
 ```
 Then, edit according to your environment.
+
+<a id="packets_path"></a>
+
+## Note for ensuring that packets pass through UE-RAN-UPF path
+
+Make the following settings on UE to ensure that packets pass through `UE-RAN-UPF` path.
+```
+ip route del default
+ip route add default dev tun_srsue
+```
+Then, for example when run iPerf3 client on UE, do the following.
+```
+iperf3 -B <UE IP address> -c <IP address of iperf3 server>
+```
 
 <a id="issues"></a>
 

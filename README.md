@@ -177,6 +177,7 @@ Then, for example when run iPerf3 client on UE, do the following.
 ```
 iperf3 -B <UE IP address> -c <IP address of iperf3 server>
 ```
+**In this case, in order to ensure that the traffic goes through `tun_srsue` interface, UE must not directly connect to the same network as the IP address to which iPerf3 server binds.**
 
 <a id="issues"></a>
 

@@ -7,9 +7,10 @@ Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
 - srsRAN 4G - https://docs.srsran.com/projects/4g/en/latest/
 
 The specification of the VM that have been confirmed to work is as follows.
-| OS | CPU (Min) | Memory (Min) | HDD (Min) |
-| --- | --- | --- | --- |
-| Ubuntu 22.04 | 1 | 2GB | 10GB |
+| OS | CPU (Min) | Memory (Min) | HDD (Min) | GCC version |
+| --- | --- | --- | --- | --- |
+| Ubuntu 22.04 | 1 | 2GB | 10GB | 11 (default) |
+| Ubuntu 24.04 | 1 | 2GB | 10GB | 11 (downgrade from 13) |
 
 **2GB or more memory is required to build.**
 
@@ -24,6 +25,7 @@ The specification of the VM that have been confirmed to work is as follows.
 ## Table of Contents
 
 - [Install the required libraries including ZeroMQ](#install_libs)
+  - [Prepare for building on Ubuntu 24.04](#build_on_ubuntu_2404)
 - [Clone srsRAN_4G](#clone_srsran)
 - [Build srsRAN 4G UE / RAN by disabling RF plugins](#build)
 - [Create configuration files of eNodeB](#create_enb_config)
@@ -44,7 +46,63 @@ The specification of the VM that have been confirmed to work is as follows.
 ## Install the required libraries including ZeroMQ
 
 ```
-apt install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libzmq3-dev
+# apt install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libzmq3-dev
+```
+
+<a id="build_on_ubuntu_2404"></a>
+
+### Prepare for building on Ubuntu 24.04
+
+If building srsRAN_4G on Ubuntu 24.04, downgrade the gcc version from the default 13 to 11.
+
+First, install gcc-11 and g++-11 in addition to the packages installed above.
+```
+# apt install gcc-11 g++-11
+```
+Then, use `update-alternatives` tool to be able to switch between gcc-11 and 13.
+```
+# update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 11 --slave /usr/bin/g++ g++ /usr/bin/g++-11
+# update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 13 --slave /usr/bin/g++ g++ /usr/bin/g++-13
+```
+Finally, switch to using gcc-11.
+```
+# update-alternatives --config gcc
+There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
+
+  Selection    Path             Priority   Status
+------------------------------------------------------------
+* 0            /usr/bin/gcc-13   13        auto mode
+  1            /usr/bin/gcc-11   11        manual mode
+  2            /usr/bin/gcc-13   13        manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 1
+update-alternatives: using /usr/bin/gcc-11 to provide /usr/bin/gcc (gcc) in manual mode
+```
+Confirm that gcc version has been switched to 11.
+```
+# update-alternatives --config gcc
+There are 2 choices for the alternative gcc (providing /usr/bin/gcc).
+
+  Selection    Path             Priority   Status
+------------------------------------------------------------
+  0            /usr/bin/gcc-13   13        auto mode
+* 1            /usr/bin/gcc-11   11        manual mode
+  2            /usr/bin/gcc-13   13        manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: ^C
+```
+```
+# gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-9ubuntu1' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-ZcnBzW/gcc-11-11.4.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-ZcnBzW/gcc-11-11.4.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.4.0 (Ubuntu 11.4.0-9ubuntu1) 
 ```
 
 <a id="clone_srsran"></a>
@@ -52,7 +110,7 @@ apt install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-o
 ## Clone srsRAN_4G
 
 ```
-git clone https://github.com/srsran/srsRAN_4G.git
+# git clone https://github.com/srsran/srsRAN_4G.git
 ```
 
 <a id="build"></a>
@@ -61,11 +119,11 @@ git clone https://github.com/srsran/srsRAN_4G.git
 
 Configure that **RF plugins** is disabled to directly link the ZeroMQ library into the virtual eNodeB and UE.
 ```
-cd srsRAN_4G
-mkdir build
-cd build
-cmake ../ -DENABLE_RF_PLUGINS=OFF
-make -j`nproc`
+# cd srsRAN_4G
+# mkdir build
+# cd build
+# cmake ../ -DENABLE_RF_PLUGINS=OFF
+# make -j`nproc`
 ```
 
 <a id="create_enb_config"></a>
@@ -73,11 +131,11 @@ make -j`nproc`
 ## Create configuration files of eNodeB
 
 ```
-cd srsRAN_4G/srsenb
-cp enb.conf.example ../build/srsenb/enb.conf
-cp rr.conf.example ../build/srsenb/rr.conf
-cp rb.conf.example ../build/srsenb/rb.conf
-cp sib.conf.example ../build/srsenb/sib.conf
+# cd srsRAN_4G/srsenb
+# cp enb.conf.example ../build/srsenb/enb.conf
+# cp rr.conf.example ../build/srsenb/rr.conf
+# cp rb.conf.example ../build/srsenb/rb.conf
+# cp sib.conf.example ../build/srsenb/sib.conf
 ```
 Then, edit according to your environment.
 
@@ -86,8 +144,8 @@ Then, edit according to your environment.
 ## Create the configuration file of UE
 
 ```
-cd srsRAN_4G/srsue
-cp ue.conf.example ../build/srsue/ue.conf
+# cd srsRAN_4G/srsue
+# cp ue.conf.example ../build/srsue/ue.conf
 ```
 Then, edit according to your environment.
 
@@ -99,8 +157,8 @@ When used as 5G NR-UE with ZeroMQ support, it can connect to srsRAN_Project 5G R
 For 5G NR-UE configuration, get `UE config` of [ZeroMQ-based Setup](https://docs.srsran.com/projects/project/en/latest/tutorials/source/srsUE/source/index.html#zeromq-based-setup) as the original file.
 Also, see [here](https://github.com/s5uishida/build_srsran_5g_zmq) for how to build this RF simulated gNodeB.
 ```
-cd srsRAN_4G/build/srsue
-wget <link of "UE config">
+# cd srsRAN_4G/build/srsue
+# wget <link of "UE config">
 ```
 For reference, `ue_zmq.conf` on 2023.12.07 is as follows.
 ```
@@ -170,12 +228,12 @@ Then, edit according to your environment.
 
 Make the following settings on UE to ensure that packets pass through `UE-RAN-UPF` path.
 ```
-ip route del default
-ip route add default dev tun_srsue
+# ip route del default
+# ip route add default dev tun_srsue
 ```
 Then, for example when run iPerf3 client on UE, do the following.
 ```
-iperf3 -B <UE IP address> -c <IP address of iperf3 server>
+# iperf3 -B <UE IP address> -c <IP address of iperf3 server>
 ```
 **In this case, in order to ensure that the traffic goes through `tun_srsue` interface, UE must not directly connect to the same network as the IP address to which iPerf3 server binds.**
 
@@ -218,6 +276,7 @@ I simply confirmed the operation of the following versions.
 
 ## Changelog (summary)
 
+- [2025.05.11] Added instructions for building on Ubuntu 24.04.
 - [2024.03.25] Updated a list of confirmed versions.
 - [2023.12.02] Updated a list of confirmed versions.
 - [2023.10.10] Added a list of confirmed versions.

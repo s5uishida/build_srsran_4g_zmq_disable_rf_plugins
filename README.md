@@ -31,6 +31,7 @@ The specification of the VM that have been confirmed to work is as follows.
 - [Create configuration files of eNodeB](#create_enb_config)
 - [Create the configuration file of UE](#create_ue_config)
 - [Create the configuration file of NR-UE](#create_nr_ue_config)
+  - [Add a Slice configuration](#add_slice)
 - [Note for ensuring that packets pass through UE-RAN-UPF path](#packets_path)
 - [Issues](#issues)
 - [Confirmed Version List](#ver_list)
@@ -221,6 +222,19 @@ enable = false
 
 ```
 Then, edit according to your environment.
+
+<a id="add_slice"></a>
+
+### Add a Slice configuration
+
+The following SST/SD values are in decimal notation.
+For example, SST=0x1 and SD=0x010203 are expressed in decimal as follows.
+```
+[slicing]
+enable = true
+nssai-sst = 1
+nssai-sd = 66051
+```
 
 <a id="packets_path"></a>
 

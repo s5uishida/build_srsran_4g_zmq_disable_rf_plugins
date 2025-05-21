@@ -1,5 +1,5 @@
 # Build srsRAN 4G UE / RAN with ZeroMQ by disabling RF plugins
-srsRAN 4G software suite includes a virtual radio which uses the ZeroMQ networking library to transfer radio samples between applications.
+[srsRAN_4G](https://github.com/srsran/srsRAN_4G) software suite includes a virtual radio which uses the ZeroMQ networking library to transfer radio samples between applications.
 Therefore, in order to confirm the facilities of EPC, I will describe the simple procedure for building these virtual eNodeB and UE instead of the real devices.
 **Note that the RF plugin is disabled and the ZeroMQ library is built into the virtual eNodeB and UE.**
 

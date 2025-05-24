@@ -249,7 +249,8 @@ Then, for example when run iPerf3 client on UE, do the following.
 ```
 # iperf3 -B <UE IP address> -c <IP address of iperf3 server>
 ```
-**In this case, in order to ensure that the traffic goes through `tun_srsue` interface, UE must not directly connect to the same network as the IP address to which iPerf3 server binds.**
+**In this case, in order to ensure that the traffic goes through `tun_srsue` interface, UE must not directly connect to the same network as the IP address to which iPerf3 server binds.  
+Note. According to [this](https://github.com/srsran/srsRAN_4G/discussions/1445#discussioncomment-11986515), srsUE is not intended to be used in high-throughput scenarios. It seems that srsUE is useful for confirming the functionality of 4G/5G core networks.**
 
 <a id="issues"></a>
 

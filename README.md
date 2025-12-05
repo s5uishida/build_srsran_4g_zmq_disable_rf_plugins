@@ -242,8 +242,7 @@ nssai-sd = 66051
 
 Make the following settings on UE to ensure that packets pass through `UE-RAN-UPF` path.
 ```
-# ip route del default
-# ip route add default dev tun_srsue
+# ip route change default dev tun_srsue
 ```
 Then, for example when run iPerf3 client on UE, do the following.
 ```

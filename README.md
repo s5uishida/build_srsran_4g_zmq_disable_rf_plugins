@@ -11,7 +11,8 @@ The specification of the VM that have been confirmed to work is as follows.
 | --- | --- | --- | --- |
 | Ubuntu 24.04 | 1 | 2GB | 10GB |
 
-**2GB or more memory is required to build.**
+**2GB or more memory is required to build.**  
+**Note. Please see [here](https://docs.srsran.com/projects/4g/en/latest/dev_status.html) for the development status of srsRAN_4G.**
 
 ---
 
@@ -233,6 +234,7 @@ I simply confirmed the operation of the following versions.
 
 ## Changelog (summary)
 
+- [2025.12.15] Added a link to the srsRAN_4G development status at the top of this article.
 - [2025.12.13] Updated a list of confirmed versions.
 - [2025.05.11] Added instructions for building on Ubuntu 24.04.
 - [2024.03.25] Updated a list of confirmed versions.

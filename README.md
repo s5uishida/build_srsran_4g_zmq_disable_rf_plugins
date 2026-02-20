@@ -1,10 +1,10 @@
-# Build srsRAN 4G UE / RAN with ZeroMQ by disabling RF plugins
+# Build srsRAN_4G UE / RAN with ZeroMQ by disabling RF plugins
 [srsRAN_4G](https://github.com/srsran/srsRAN_4G) software suite includes a virtual radio which uses the ZeroMQ networking library to transfer radio samples between applications.
 Therefore, in order to confirm the facilities of EPC, I will describe the simple procedure for building these virtual eNodeB and UE instead of the real devices.
 **Note that the RF plugin is disabled and the ZeroMQ library is built into the virtual eNodeB and UE.**
 
-Please refer to the following for building srsRAN 4G UE / RAN with ZeroMQ.
-- srsRAN 4G - https://docs.srsran.com/projects/4g/en/latest/
+Please refer to the following for building srsRAN_4G UE / RAN with ZeroMQ.
+- srsRAN_4G - https://docs.srsran.com/projects/4g/en/latest/
 
 The specification of the VM that have been confirmed to work is as follows.
 | OS | CPU (Min) | Memory (Min) | HDD (Min) |
@@ -26,7 +26,7 @@ The specification of the VM that have been confirmed to work is as follows.
 
 - [Install the required libraries including ZeroMQ](#install_libs)
 - [Clone srsRAN_4G](#clone_srsran)
-- [Build srsRAN 4G UE / RAN by disabling RF plugins](#build)
+- [Build srsRAN_4G UE / RAN by disabling RF plugins](#build)
 - [Create configuration files of eNodeB](#create_enb_config)
 - [Create the configuration file of UE](#create_ue_config)
 - [Create the configuration file of NR-UE](#create_nr_ue_config)
@@ -59,7 +59,7 @@ The specification of the VM that have been confirmed to work is as follows.
 
 <a id="build"></a>
 
-## Build srsRAN 4G UE / RAN by disabling RF plugins
+## Build srsRAN_4G UE / RAN by disabling RF plugins
 
 Configure that **RF plugins** is disabled to directly link the ZeroMQ library into the virtual eNodeB and UE.
 ```
@@ -229,7 +229,7 @@ I simply confirmed the operation of the following versions.
 
 ### For 4G
 
-- [Open5GS EPC & srsRAN 4G with ZeroMQ UE / RAN Sample Configuration](https://github.com/s5uishida/open5gs_epc_srsran_sample_config)
+- [Open5GS EPC & srsRAN_4G with ZeroMQ UE / RAN Sample Configuration](https://github.com/s5uishida/open5gs_epc_srsran_sample_config)
 
 <a id="changelog"></a>
 

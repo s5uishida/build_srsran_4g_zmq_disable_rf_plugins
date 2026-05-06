@@ -48,6 +48,10 @@ The specification of the VM that have been confirmed to work is as follows.
 ```
 # apt install build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libzmq3-dev
 ```
+To run the built binaries, only need to install the following packages.
+```
+# apt install libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libzmq3-dev
+```
 
 <a id="clone_srsran"></a>
 

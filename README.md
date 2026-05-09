@@ -193,7 +193,7 @@ nssai-sd = 66051
 
 ### Regarding MTU size of UE (4G/5G) tunnel interface
 
-For setting on MTU size of UE (4G/5G) tunnel interface, please refer to the [footnotes](https://github.com/s5uishida/simple_confirmed_info_for_mobile_network#footnotes) [5] and [7].
+For setting MTU size of UE (4G/5G) tunnel interface, please refer to the [footnotes](https://github.com/s5uishida/simple_confirmed_info_for_mobile_network#footnotes) [5] and [7].
 
 <a id="packets_path"></a>
 

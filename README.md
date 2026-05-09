@@ -31,7 +31,9 @@ The specification of the VM that have been confirmed to work is as follows.
 - [Create the configuration file of UE](#create_ue_config)
 - [Create the configuration file of NR-UE](#create_nr_ue_config)
   - [Add a Slice configuration](#add_slice)
-- [Note for ensuring that packets pass through UE-RAN-UPF path](#packets_path)
+- [Notes](#notes)
+  - [Regarding MTU size of UE (4G/5G) tunnel interface](#mtu)
+  - [For ensuring that packets pass through UE-RAN-UPF path](#packets_path)
 - [Issues](#issues)
 - [Confirmed Version List](#ver_list)
 - [Sample Configurations](#sample_conf)
@@ -183,9 +185,19 @@ nssai-sst = 1
 nssai-sd = 66051
 ```
 
+<a id="notes"></a>
+
+## Notes
+
+<a id="mtu"></a>
+
+### Regarding MTU size of UE (4G/5G) tunnel interface
+
+For setting on MTU size of UE (4G/5G) tunnel interface, please refer to the [footnotes](https://github.com/s5uishida/simple_confirmed_info_for_mobile_network#footnotes) [5] and [7].
+
 <a id="packets_path"></a>
 
-## Note for ensuring that packets pass through UE-RAN-UPF path
+### For ensuring that packets pass through UE-RAN-UPF path
 
 Make the following settings on UE to ensure that packets pass through `UE-RAN-UPF` path.
 ```

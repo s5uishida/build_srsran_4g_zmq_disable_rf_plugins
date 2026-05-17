@@ -170,6 +170,16 @@ ip_netmask = 255.255.255.0
 enable = false
 
 ```
+The examples of `Channel Bandwidth`, `SubCarrier Spacing (SCS)`, `FFT Size`, `Sampling Rate` and `Number of Resource Blocks (NRB)` are as follows.
+| Channel Bandwidth | SCS(1) | FFT Size(2) | Sampling Rate(=(1)*(2)) | NRB |
+| --- | --- | --- | --- | --- |
+| 10 MHz | 15 kHz | 768 | 11.52 MHz | 52 |
+| 20 MHz | 15 kHz | 1024 | 23.04 MHz | 106 |
+
+Please refer to the following for details on the above parameters.
+- 3GPP TS 38.104 - 5.3.2 Transmission bandwidth configuration
+- 3GPP TS 38.101-1 - F.5.3 Window length for normal CP
+
 Then, edit according to your environment.
 
 <a id="add_slice"></a>

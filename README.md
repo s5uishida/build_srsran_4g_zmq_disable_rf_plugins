@@ -30,7 +30,6 @@ The specification of the VM that have been confirmed to work is as follows.
 - [Create configuration files of eNodeB](#create_enb_config)
 - [Create the configuration file of UE](#create_ue_config)
 - [Create the configuration file of NR-UE](#create_nr_ue_config)
-  - [Set ZeroMQ virtual radio driver channel gain to <= 0 dB](#gain)
   - [Add a Slice configuration](#add_slice)
 - [Notes](#notes)
   - [Regarding MTU size of UE (4G/5G) tunnel interface](#mtu)
@@ -89,6 +88,14 @@ Configure that **RF plugins** is disabled to directly link the ZeroMQ library in
 # cp sib.conf.example ../build/srsenb/sib.conf
 ```
 Then, edit according to your environment.
+First, when using the ZeroMQ virtual radio driver, the channel gain must be set to 0.0 dB or less.
+- `enb.conf`
+```
+[rf]
+...
+tx_gain = 0
+rx_gain = 0
+```
 
 <a id="create_ue_config"></a>
 
@@ -99,6 +106,14 @@ Then, edit according to your environment.
 # cp ue.conf.example ../build/srsue/ue.conf
 ```
 Then, edit according to your environment.
+First, when using the ZeroMQ virtual radio driver, the channel gain must be set to 0.0 dB or less.
+- `ue.conf`
+```
+[rf]
+...
+tx_gain = 0
+rx_gain = 0
+```
 
 <a id="create_nr_ue_config"></a>
 
@@ -184,19 +199,13 @@ Please refer to the following for details on the above parameters.
 - 3GPP TS 38.213 - 13 UE procedure for monitoring Type0-PDCCH CSS sets
 
 Then, edit according to your environment.
-
-<a id="gain"></a>
-
-### Set ZeroMQ virtual radio driver channel gain to <= 0 dB
-
-When using the ZeroMQ virtual radio driver, the channel gain must be set to 0.0 dB or less.
+First, when using the ZeroMQ virtual radio driver, the channel gain must be set to 0.0 dB or less.
+- `ue_zmq.conf`
 ```
 [rf]
-freq_offset = 0
-tx_gain = 0 <--
-rx_gain = 0 <--
-srate = 23.04e6
-nof_antennas = 1
+...
+tx_gain = 0
+rx_gain = 0
 ```
 
 <a id="add_slice"></a>

@@ -236,6 +236,7 @@ I simply confirmed the operation of the following versions.
 
 | Version | Commit | Date | Issues |
 | --- | --- | --- | -- |
+| 25.10+ | `bef8680d5f9714f3e040e6f9cbc88d7888439b6d` | 2026.09.10 | -- |
 | 25.10 | `6bcbd9e5bf8686aa7085202cd847c5ddd64a9c16` | 2026.01.18 | -- |
 | 23.11+ | `1fab3df863f66fdb6c3b34f1b39e745dbcb12d5e` | 2025.10.22 | 1 |
 | 23.11+ | `ec29b0c1ff79cebcbe66caa6d6b90778261c42b8` | 2024.02.01 | 1 |
@@ -263,6 +264,7 @@ I simply confirmed the operation of the following versions.
 
 ## Changelog (summary)
 
+- [2026.09.20] Updated a list of confirmed versions.
 - [2026.01.26] Updated a list of confirmed versions.
 - [2025.12.15] Added a link to the srsRAN_4G development status at the top of this article.
 - [2025.12.13] Updated a list of confirmed versions.

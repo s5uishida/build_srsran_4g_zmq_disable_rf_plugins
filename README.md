@@ -107,7 +107,6 @@ rx_gain = 0
 ```
 Then, edit according to your environment.
 First, when using the ZeroMQ virtual radio driver, the channel gain must be set to 0.0 dB or less.
-- `ue.conf`
 ```
 [rf]
 ...
@@ -200,7 +199,6 @@ Please refer to the following for details on the above parameters.
 
 Then, edit according to your environment.
 First, when using the ZeroMQ virtual radio driver, the channel gain must be set to 0.0 dB or less.
-- `ue_zmq.conf`
 ```
 [rf]
 ...

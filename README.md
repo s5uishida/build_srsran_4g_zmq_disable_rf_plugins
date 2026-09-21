@@ -31,6 +31,7 @@ The specification of the VM that have been confirmed to work is as follows.
 - [Create the configuration file of UE](#create_ue_config)
 - [Create the configuration file of NR-UE](#create_nr_ue_config)
   - [Add a Slice configuration](#add_slice)
+  - [Configuration changes for my case](#my_conf)
 - [Notes](#notes)
   - [Regarding MTU size of UE (4G/5G) tunnel interface](#mtu)
   - [For ensuring that packets pass through UE-RAN-UPF path](#packets_path)
@@ -118,24 +119,29 @@ rx_gain = 0
 
 ## Create the configuration file of NR-UE
 
-When used as 5G NR-UE with ZeroMQ support, it can connect to srsRAN_Project 5G RAN with ZeroMQ.
-For 5G NR-UE configuration, get [ue_zmq.conf](https://github.com/srsran/srsRAN_Project_docs/blob/main/docs/source/tutorials/source/srsUE/source/.config/ue_zmq.conf) as the original file.
-Also, see [here](https://github.com/s5uishida/build_srsran_5g_zmq) for how to build this RF simulated gNodeB.
+When used as 5G NR-UE with ZeroMQ support, it can connect to OCUDU 5G RAN with ZeroMQ.
+For 5G NR-UE configuration, get [ue_zmq.conf](https://gitlab.com/ocudu/ocudu_docs/-/blob/main/docs/tutorials/srsue/assets/ue_zmq.conf) as the original file.
+Also, see [here](https://github.com/s5uishida/build_ocudu_zmq) for how to build this RF simulated gNodeB.
 ```
 # cd srsRAN_4G/build/srsue
-# wget https://raw.githubusercontent.com/srsran/srsRAN_Project_docs/refs/heads/main/docs/source/tutorials/source/srsUE/source/.config/ue_zmq.conf
+# wget https://gitlab.com/ocudu/ocudu_docs/-/raw/main/docs/tutorials/srsue/assets/ue_zmq.conf
 ```
-For reference, `ue_zmq.conf` on 2023.12.04 is as follows.
+For reference, `ue_zmq.conf` on 2026.06.16 is as follows.
 ```
+# SPDX-FileCopyrightText: Copyright (C) 2021-2026 Software Radio Systems Limited
+# SPDX-License-Identifier: BSD-3-Clause-Open-MPI
+
+# Example config for srsUE with ZMQ-based RF driver.
+
 [rf]
 freq_offset = 0
 tx_gain = 50
 rx_gain = 40
-srate = 23.04e6
+srate = 11.52e6
 nof_antennas = 1
 
 device_name = zmq
-device_args = tx_port=tcp://127.0.0.1:2001,rx_port=tcp://127.0.0.1:2000,base_srate=23.04e6
+device_args = tx_port=tcp://127.0.0.1:2001,rx_port=tcp://127.0.0.1:2000,base_srate=11.52e6
 
 [rat.eutra]
 dl_earfcn = 2850
@@ -144,8 +150,8 @@ nof_carriers = 0
 [rat.nr]
 bands = 3
 nof_carriers = 1
-max_nof_prb = 106
-nof_prb = 106
+max_nof_prb = 52
+nof_prb = 52
 
 [pcap]
 enable = none
@@ -173,7 +179,7 @@ release = 15
 ue_category = 4
 
 [nas]
-apn = srsapn
+apn = internet
 apn_protocol = ipv4
 
 [gw]
@@ -183,7 +189,6 @@ ip_netmask = 255.255.255.0
 
 [gui]
 enable = false
-
 ```
 The examples of `Channel Bandwidth`, `SubCarrier Spacing (SCS)`, `FFT Size`, `Sampling Rate`, `Number of Resource Blocks (NRB)` and `controlResourceSetZero (CORESET #0)` are as follows.
 | Channel Bandwidth | SCS(1) | FFT Size(2) | Sampling Rate(=(1)*(2)) | NRB | CORESET #0 |
@@ -217,6 +222,73 @@ For example, SST=0x1 and SD=0x010203 are expressed in decimal as follows.
 enable = true
 nssai-sst = 1
 nssai-sd = 66051
+```
+
+<a id="my_conf"></a>
+
+### Configuration changes for my case
+
+In my case, the changes to the configuration are as follows.
+```diff
+--- ue_zmq.conf.orig    2026-09-21 20:58:46.017759893 +0900
++++ ue_zmq.conf 2026-09-21 22:29:17.751594310 +0900
+@@ -5,13 +5,13 @@
+ 
+ [rf]
+ freq_offset = 0
+-tx_gain = 50
+-rx_gain = 40
+-srate = 11.52e6
++tx_gain = 0
++rx_gain = 0
++srate = 23.04e6
+ nof_antennas = 1
+ 
+ device_name = zmq
+-device_args = tx_port=tcp://127.0.0.1:2001,rx_port=tcp://127.0.0.1:2000,base_srate=11.52e6
++device_args = tx_port=tcp://127.0.0.1:2001,rx_port=tcp://127.0.0.1:2000,base_srate=23.04e6
+ 
+ [rat.eutra]
+ dl_earfcn = 2850
+@@ -20,8 +20,8 @@
+ [rat.nr]
+ bands = 3
+ nof_carriers = 1
+-max_nof_prb = 52
+-nof_prb = 52
++max_nof_prb = 106
++nof_prb = 106
+ 
+ [pcap]
+ enable = none
+@@ -39,9 +39,9 @@
+ [usim]
+ mode = soft
+ algo = milenage
+-opc  = 63BFA50EE6523365FF14C1F45F88737D
+-k    = 00112233445566778899aabbccddeeff
+-imsi = 001010123456780
++opc  = E8ED289DEBA952E4283B54E88E6183CA
++k    = 465B5CE8B199B49FAA5F0A2EE238A6BC
++imsi = 001010000001000
+ imei = 353490069873319
+ 
+ [rrc]
+@@ -52,8 +52,13 @@
+ apn = internet
+ apn_protocol = ipv4
+ 
++[slicing]
++enable = true
++nssai-sst = 1
++nssai-sd = 66051
++
+ [gw]
+-netns = ue1
++#netns = ue1
+ ip_devname = tun_srsue
+ ip_netmask = 255.255.255.0
+ 
 ```
 
 <a id="notes"></a>

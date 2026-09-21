@@ -231,7 +231,7 @@ nssai-sd = 66051
 In my case, **basic examples** of the configuration changes are as follows.
 ```diff
 --- ue_zmq.conf.orig    2026-09-21 20:58:46.017759893 +0900
-+++ ue_zmq.conf 2026-09-21 22:38:11.353927141 +0900
++++ ue_zmq.conf 2026-09-21 23:03:46.657088832 +0900
 @@ -5,13 +5,13 @@
  
  [rf]
@@ -261,18 +261,6 @@ In my case, **basic examples** of the configuration changes are as follows.
  
  [pcap]
  enable = none
-@@ -52,6 +52,11 @@
- apn = internet
- apn_protocol = ipv4
- 
-+[slicing]
-+enable = true
-+nssai-sst = 1
-+nssai-sd = 66051
-+
- [gw]
- netns = ue1
- ip_devname = tun_srsue
 ```
 
 <a id="notes"></a>

@@ -231,7 +231,7 @@ nssai-sd = 66051
 In my case, the changes to the configuration are as follows.
 ```diff
 --- ue_zmq.conf.orig    2026-09-21 20:58:46.017759893 +0900
-+++ ue_zmq.conf 2026-09-21 22:29:17.751594310 +0900
++++ ue_zmq.conf 2026-09-21 22:38:11.353927141 +0900
 @@ -5,13 +5,13 @@
  
  [rf]
@@ -261,20 +261,7 @@ In my case, the changes to the configuration are as follows.
  
  [pcap]
  enable = none
-@@ -39,9 +39,9 @@
- [usim]
- mode = soft
- algo = milenage
--opc  = 63BFA50EE6523365FF14C1F45F88737D
--k    = 00112233445566778899aabbccddeeff
--imsi = 001010123456780
-+opc  = E8ED289DEBA952E4283B54E88E6183CA
-+k    = 465B5CE8B199B49FAA5F0A2EE238A6BC
-+imsi = 001010000001000
- imei = 353490069873319
- 
- [rrc]
-@@ -52,8 +52,13 @@
+@@ -52,6 +52,11 @@
  apn = internet
  apn_protocol = ipv4
  
@@ -284,11 +271,8 @@ In my case, the changes to the configuration are as follows.
 +nssai-sd = 66051
 +
  [gw]
--netns = ue1
-+#netns = ue1
+ netns = ue1
  ip_devname = tun_srsue
- ip_netmask = 255.255.255.0
- 
 ```
 
 <a id="notes"></a>

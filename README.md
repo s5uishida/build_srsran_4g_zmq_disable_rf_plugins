@@ -228,7 +228,7 @@ nssai-sd = 66051
 
 ### Configuration changes for my case
 
-In my case, basic examples of the configuration changes are as follows.
+In my case, **basic examples** of the configuration changes are as follows.
 ```diff
 --- ue_zmq.conf.orig    2026-09-21 20:58:46.017759893 +0900
 +++ ue_zmq.conf 2026-09-21 22:38:11.353927141 +0900
